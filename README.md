@@ -5,7 +5,7 @@ Repo for my demo at Codito Ergo Sum meetup. Event hosted at The Family in Paris 
 
 ### Demo
 - Create a K8S cluster
-- Get cluster credentials
+- Get the cluster credentials
 
 - Create a Private GitHub repo containing your application code, etc.
 
@@ -13,8 +13,7 @@ Repo for my demo at Codito Ergo Sum meetup. Event hosted at The Family in Paris 
 - Build and test the Docker image
 - Push the Docker image in GCR: `gcloud docker -- push gcr.io/tribe-testing/codito-jan2017:pre`
 
-- Create the k8s.yml file containing the K8S deployment configuration for the application
-- Apply the file to the K8S cluster: `kubectl apply -f resources/k8s.yml --record`
+- Create the K8S deployment and allow external traffic to the application
 
 (At this point you have the application/container running in the cluster!!!)
 
@@ -42,8 +41,19 @@ gcloud --quiet config set compute/zone us-east1-b
 gcloud --quiet container clusters get-credentials cluster-codito-jan2017
 ```
 
+### Create the deployment
+```
+kubectl run codito-jan2017 --image=gcr.io/tribe-staging/codito-jan2017:pre --port=8080
+kubectl expose deployment codito-jan2017 --type="LoadBalancer"
+```
+
 ### Connect to the cluster
 ```
 gcloud container clusters get-credentials cluster-codito-jan2017 --zone us-east1-b --project tribe-testing
 kubectl proxy
+```
+
+### Scale up the application (optional)
+```
+kubectl scale deployment codito-jan2017 --replicas=3
 ```
