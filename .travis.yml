@@ -36,7 +36,6 @@ before_install:
   - gcloud --quiet version
   - gcloud --quiet components update
   - gcloud --quiet components update beta
-  - gcloud --quiet components update cloud-datastore-emulator
 
 install:
   - npm install
