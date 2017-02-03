@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/JacopoDaeli/codito-jan2017.svg?token=yeGiy41t7dXuXzCiGV4X&branch=master)](https://travis-ci.com/JacopoDaeli/codito-jan2017)
 
 # codito-jan2017
-Repo for my demo at Codito Ergo Sum meetup. Event hosted at The Family in Paris on 19th Jan 2017.
+Presentation repository at Codito Ergo Sum hosted by TheFamily in Paris, Jan 19th 2017. Edit
 
 ### Demo
 - Create a K8S cluster
